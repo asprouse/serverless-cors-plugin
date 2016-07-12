@@ -60,8 +60,8 @@ module.exports = function(S) {
           response.responseParameters['method.response.header.Access-Control-Expose-Headers'] = '\'' + policy.exposeHeaders + '\'';
         }
 
-        // Set allow-credentials header on all GET responses as these will not be preflighted
-        if (populatedEndpoint.method === 'GET' && !_.isUndefined(policy.allowCredentials)) {
+        // Set allow-credentials header
+        if (!_.isUndefined(policy.allowCredentials)) {
           response.responseParameters['method.response.header.Access-Control-Allow-Credentials'] = '\'' + policy.allowCredentials + '\'';
         }
       });
